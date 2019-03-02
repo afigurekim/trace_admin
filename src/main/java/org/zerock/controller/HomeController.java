@@ -18,6 +18,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.zerock.domain.Historic_siteVO;
+import org.zerock.domain.Historic_site_starVO;
 import org.zerock.domain.VisitorVO;
 import org.zerock.service.BoardService;
 
@@ -73,6 +75,60 @@ public class HomeController {
 			return entity;
 
 	}
+	@ResponseBody
+	@RequestMapping(value="/topHistoric", method = RequestMethod.GET)
+	public ResponseEntity<Map<String,Object>>  topHistoric() {
+		
+		ResponseEntity<Map<String,Object>> entity= null;
 
+		
+			try {
+				Map<String,Object> map = new HashMap<String,Object>();
+				List<Historic_siteVO> list= service.topHistoric();
+				
+				map.put("list", list);
+				
+
+				entity= new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+						
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				entity=new ResponseEntity<Map<String,Object>>(HttpStatus.BAD_REQUEST);
+			}
+			
+		
+			return entity;
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/userStar", method = RequestMethod.GET)
+	public ResponseEntity<Map<String,Object>>  userStar() {
+		System.out.println("사용자 별점 비율 컨트로러");
+		ResponseEntity<Map<String,Object>> entity= null;
+
+		
+			try {
+				Map<String,Object> map = new HashMap<String,Object>();
+				List<Historic_site_starVO> list= service.userStar();
+				for(int i=0;i<list.size();i++) {
+					System.out.println(list.get(i).getStar());
+				}
+				map.put("list",list);
+				entity= new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+						
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				entity=new ResponseEntity<Map<String,Object>>(HttpStatus.BAD_REQUEST);
+			}
+			
+		
+			return entity;
+
+	}
 	
 }

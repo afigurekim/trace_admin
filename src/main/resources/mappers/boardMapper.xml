@@ -3,7 +3,7 @@
 <mapper namespace="org.zerock.mappers.boardMapper">
 
 	<insert id="create">
-		insert into tbl_editor(title,content,writer,theme)
+		insert into TBL_EDITOR(title,content,writer,theme)
 		values (#{title},#{content},#{writer},#{theme})
 	</insert>
 
@@ -11,17 +11,17 @@
 		select
 		bno,title,content,writer,regdate,viewcnt,theme
 		from
-		tbl_editor
+		TBL_EDITOR
 		where bno=#{bno}
 	</select>
 
 	<update id="update">
-		update tbl_editor set title=#{title}, content =#{content}, theme=#{theme}
+		update TBL_EDITOR set title=#{title}, content =#{content}, theme=#{theme}
 		where bno = #{bno}
 	</update>
 
 	<delete id="delete">
-		delete from tbl_editor where bno = #{bno}
+		delete from V where bno = #{bno}
 	</delete>
 
 	<select id="listAll" resultType="org.zerock.domain.BoardVO">
@@ -29,7 +29,7 @@
 			select 
 			bno,title,content,writer,regdate,viewcnt,theme 
 			from 
-			tbl_editor 
+			TBL_EDITOR 
 			where bno>0 
 			order by bno desc,regdate desc
 		]]>
@@ -37,7 +37,20 @@
 	
 	<select id="allVisitor" resultType="org.zerock.domain.VisitorVO">
 	<![CDATA[
-		select * from tb_visitor
+		select * from TB_VISITOR
+	]]>
+	</select>
+	
+	<select id="topHistoric" resultType="org.zerock.domain.Historic_siteVO">
+	<![CDATA[
+		select * from HISTORIC_SITE order by view_cnt desc limit 5;
+		
+	]]>
+	</select>
+	
+	<select id="userStar" resultType="org.zerock.domain.Historic_site_starVO">
+	<![CDATA[
+		select * from HISTORIC_SITE_STAR;
 	]]>
 	</select>
 </mapper>

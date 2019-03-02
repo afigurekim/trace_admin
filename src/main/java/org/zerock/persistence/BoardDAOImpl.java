@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Historic_siteVO;
+import org.zerock.domain.Historic_site_starVO;
 import org.zerock.domain.VisitorVO;
 
 @Repository
@@ -48,5 +50,17 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<VisitorVO> allVisitor() throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".allVisitor");
+	}
+
+	@Override
+	public List<Historic_siteVO> topHistoric() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".topHistoric");
+	}
+
+	@Override
+	public List<Historic_site_starVO> userStar() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".userStar");
 	}
 }

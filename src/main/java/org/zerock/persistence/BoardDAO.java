@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Historic_siteVO;
+import org.zerock.domain.Historic_site_starVO;
 import org.zerock.domain.VisitorVO;
 
 @Repository
@@ -21,5 +23,8 @@ public interface BoardDAO {
 	
 	public List<VisitorVO> allVisitor() throws Exception;
 	
+	public List<Historic_siteVO> topHistoric() throws Exception;
+	
+	public List<Historic_site_starVO> userStar() throws Exception;
 	
 }

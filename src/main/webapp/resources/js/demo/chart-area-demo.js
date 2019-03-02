@@ -21,7 +21,6 @@ var pm_6=0;
 var pm_7=0;
 var pm_8=0;
 var pm_9=0;
-
 $(function(){
 	$.ajax({
 		url:"/allVisitor",
@@ -30,11 +29,13 @@ $(function(){
 		success:function(data){
 			for(var i=0;i<data.visit.length;i++){
 				if(data.visit[i].indexOf("9 오전")!=-1){
+					
 					am_9++;
 				}else if(data.visit[i].indexOf("10 오전")!=-1){
 					am_10++;
 					console.log(am_10+"am 10");
 				}else if(data.visit[i]=="11 오전"){
+					consol.elog(am_11);
 					am_11++;
 				}else if(data.visit[i]=="12 오후"){
 					pm_12++;
@@ -60,7 +61,6 @@ $(function(){
 			}
 		}
 	});
-	
 	var ctx = document.getElementById("myAreaChart");
 	var myLineChart = new Chart(ctx, {
 	  type: 'line',

@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Historic_siteVO;
+import org.zerock.domain.Historic_site_starVO;
 import org.zerock.domain.VisitorVO;
 import org.zerock.persistence.BoardDAO;
 
@@ -53,6 +55,18 @@ public class BoardServiceImpl implements BoardService {
 	public List<VisitorVO> allVisitor() throws Exception {
 		// TODO Auto-generated method stub
 		return dao.allVisitor();
+	}
+
+	@Override
+	public List<Historic_siteVO> topHistoric() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.topHistoric();
+	}
+
+	@Override
+	public List<Historic_site_starVO> userStar() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userStar();
 	}
 	
 	
