@@ -1,6 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file ="../template/header.jsp" %>
+<script>
+$(function(){
+var thema = "";
+var period="";
+
+$(".modify").click(function(){
+var index=$(".modify").index($(this));
+var index2;
+var bno=0;
+bno=$(".bno").eq(index).text();
+console.log(bno+"bno에요");
+console.log("인덱스입니다"+index);
+	$(".period:eq("+index+")>input[name=period]:checked").each(function(idx){
+			period=$(this).val();
+
+		console.log(period)
+	});
+	$(".thema:eq("+index+")>input[name=thema]:checked").each(function(idx){
+
+			thema+=$(this).val()+" ";
+		console.log(thema);
+	});
+	
+	$.ajax({
+		url:"/modifyCategory",
+		type:'post',
+		data:{
+			sbno:bno,
+			speriod:period,
+			sthema:thema,
+		},
+		beforeSend:function(xhr){
+			xhr.setRequestHeader("${_csrf.headerName}","${_csrf.token}");
+		},
+		success:function(data){
+			alert("수정되었습니다");
+			thema="";
+			period="";
+		}
+	});
+});
+});  
+</script>    
     <div id="content-wrapper">
 
       <div class="container-fluid">
@@ -13,121 +58,66 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <colgroup>
+                	<col width="5%"/>
+                	<col width="15%"/>
+                	<col width="20%"/>
+                	<col width="15%"/>
+                	<col width="20%"/>
+                	<col width="15%"/>
+           	    	<col width="5%"/>
+               
+                </colgroup>
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>시대</th>
+                    <th>테마</th>
+                    <th></th>
+                    <th></th>
+                    <th>수정</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </tfoot>
+               
                 <tbody>
+                  <c:forEach items="${list}" var="list">
+                  
                   <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td class="bno">${list.bno}</td>
+                    <td>${list.site_name}</td>
+					<td>${list.period}</td>
+					<td>${list.thema}</td>
+					<td>
+					<form class="period">
+					<input type="radio" name="period" value="선사">선사
+					<input type="radio" name="period" value="삼국">삼국
+					<input type="radio" name="period" value="고려">고려
+					<input type="radio" name="period" value="조선">조선
+					<input type="radio" name="period" value="근현대">근현대
+					</form>
+					</td>      
+					<td>
+					<form class="thema" >
+					<input type="checkbox" name="thema" value="고육">교육
+					<input type="checkbox" name="thema" value="데이트">데이트
+					<input type="checkbox" name="thema" value="가족">가족
+					<input type="checkbox" name="thema" value="종교">종교
+					</form>
+					</td>
+					
+					<td>
+					<button type="button" class="modify">수정</button>
+					</td>
                   </tr>
-                  <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
-                  </tr>
-                  <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009/01/12</td>
-                    <td>$86,000</td>
-                  </tr>
-                  <tr>
-                    <td>Cedric Kelly</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                    <td>22</td>
-                    <td>2012/03/29</td>
-                    <td>$433,060</td>
-                  </tr>
-                  <tr>
-                    <td>Airi Satou</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>33</td>
-                    <td>2008/11/28</td>
-                    <td>$162,700</td>
-                  </tr>
-                  <tr>
-                    <td>Brielle Williamson</td>
-                    <td>Integration Specialist</td>
-                    <td>New York</td>
-                    <td>61</td>
-                    <td>2012/12/02</td>
-                    <td>$372,000</td>
-                  </tr>
-                  <tr>
-                    <td>Herrod Chandler</td>
-                    <td>Sales Assistant</td>
-                    <td>San Francisco</td>
-                    <td>59</td>
-                    <td>2012/08/06</td>
-                    <td>$137,500</td>
-                  </tr>
-                  <tr>
-                    <td>Rhona Davidson</td>
-                    <td>Integration Specialist</td>
-                    <td>Tokyo</td>
-                    <td>55</td>
-                    <td>2010/10/14</td>
-                    <td>$327,900</td>
-                  </tr>
-                  <tr>
-                    <td>Colleen Hurst</td>
-                    <td>Javascript Developer</td>
-                    <td>San Francisco</td>
-                    <td>39</td>
-                    <td>2009/09/15</td>
-                    <td>$205,500</td>
-                  </tr>
-                  <tr>
-                    <td>Sonya Frost</td>
-                    <td>Software Engineer</td>
-                    <td>Edinburgh</td>
-                    <td>23</td>
-                    <td>2008/12/13</td>
-                    <td>$103,600</td>
-                  </tr>
-                  <tr>
-                    <td>Jena Gaines</td>
-                    <td>Office Manager</td>
-                    <td>London</td>
-                    <td>30</td>
-                    <td>2008/12/19</td>
-                    <td>$90,560</td>
-                  </tr>
+                  </c:forEach>
+                  
+                   
                  
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
       </div>
       <!-- /.container-fluid -->

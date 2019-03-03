@@ -50,7 +50,33 @@
 	
 	<select id="userStar" resultType="org.zerock.domain.Historic_site_starVO">
 	<![CDATA[
-		select * from HISTORIC_SITE_STAR;
+		select * from HISTORIC_SITE_STAR
 	]]>
 	</select>
+	
+	<select id="allHistoric" resultType="org.zerock.domain.Historic_siteVO">
+	<![CDATA[
+		select * from HISTORIC_SITE
+	]]>
+	
+	</select>
+	
+	<select id="selectThema" resultType="String">
+	<![CDATA[
+		select thema from HISTORIC_SITE where bno=#{bno}
+	]]>
+	</select>
+	
+	<select id="selectPeriod" resultType="String">
+	<![CDATA[
+		select period from HISTORIC_SITE where bno=#{bno}
+	]]>
+	</select>
+	
+	<update id="updateCategory">
+	<![CDATA[
+		update HISTORIC_SITE set period =#{period},thema=#{thema} where bno=#{bno}
+	]]>
+	
+	</update>
 </mapper>

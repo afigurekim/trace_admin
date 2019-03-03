@@ -68,6 +68,35 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return dao.userStar();
 	}
+
+	@Override
+	public List<Historic_siteVO> allHistoric() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.allHistoric();
+	}
+
+	@Override
+	public String selectPeriod(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectPeriod(bno);
+	}
+
+	@Override
+	public String selectThema(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectThema(bno);
+	}
+
+	@Override
+	public void updateCategory(String period, String thema, int bno) {
+		// TODO Auto-generated method stub
+		try {
+			dao.updateCategory(period,thema,bno);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 

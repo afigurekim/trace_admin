@@ -27,4 +27,12 @@ public interface BoardDAO {
 	
 	public List<Historic_site_starVO> userStar() throws Exception;
 	
+	public List<Historic_siteVO> allHistoric() throws Exception;
+	
+	public String selectThema(int bno) throws Exception;
+	
+	public String selectPeriod(int bno)throws Exception;
+
+	public void updateCategory(String period,String thema,int bno)throws Exception;
+	
 }

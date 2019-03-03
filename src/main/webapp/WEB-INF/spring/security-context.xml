@@ -14,7 +14,7 @@
 	
 	<security:intercept-url pattern="/editor/*" access="hasRole('ROLE_ADMIN')"/>
 		<security:intercept-url pattern="/category/*" access="hasRole('ROLE_ADMIN')"/>
-	
+		<security:intercept-url pattern="/modifyCategory" access="hasRole('ROLE_ADMIN')"/>
 	<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
 	<security:logout logout-url="/customLogout" invalidate-session="true"/>
 </security:http>

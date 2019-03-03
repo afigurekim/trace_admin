@@ -1,6 +1,8 @@
 package org.zerock.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -62,5 +64,34 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<Historic_site_starVO> userStar() throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".userStar");
+	}
+
+	@Override
+	public List<Historic_siteVO> allHistoric() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".allHistoric");
+	}
+
+	@Override
+	public String selectThema(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".selectThema",bno);
+		
+	}
+
+	@Override
+	public String selectPeriod(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".selectPeriod",bno);
+	}
+
+	@Override
+	public void updateCategory(String period, String thema, int bno) throws Exception {
+		// TODO Auto-generated method stub
+		Map <String,Object> map = new HashMap<String,Object>();
+		map.put("period", period);
+		map.put("thema", thema);
+		map.put("bno", bno);
+		session.update(namespace+".updateCategory",map);
 	}
 }
