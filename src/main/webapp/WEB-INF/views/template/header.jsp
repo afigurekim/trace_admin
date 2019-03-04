@@ -37,12 +37,12 @@
 	<!-- 상단의 bar -->
 	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 		<a class="navbar-brand mr-1" href="/">관리자 페이지</a>
-	
+		<div>
 			<form class="form-inline" action="/customLogout" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button type="submit" class="btn btn-primary float-right" >Logout</button>
 			</form>
-	
+		</div>
 	</nav>
 	
 	<div id="wrapper">
@@ -65,4 +65,12 @@
 			<i class="fas fa-fw fa-folder"></i> <span>에디터 추천코스</span>
 		</a>
 			</li>
+			
+				<!-- 공지사항  관리 -->
+		<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="/notice/list" id="pagesDropdown" role="button"  aria-haspopup="true" aria-expanded="false"> 
+			<i class="fas fa-fw fa-folder"></i> <span>공지사항 관리</span>
+		</a>
+			</li>	
+			
 	</ul>

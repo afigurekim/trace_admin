@@ -18,12 +18,31 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css" rel="stylesheet">
-
+<style>
+#forlogo {
+   text-align: center;
+}
+img {
+   width: 200px;
+   height: auto;
+   margin-right : 200px;
+   margin-top : 50px;
+   margin-bottom : 10px;
+}
+.card{
+   margin-top : 0px;
+}
+.btn .btn-primary{
+   width
+}
+</style>
 </head>
 
 <body class="bg-dark">
-
-  <div class="container">
+   <div id="forlogo" style="margin-top:100px;">
+      <img alt="" src="resources/imgs/logo.png">
+   </div>
+  <div class="container" style="margin-top:-50px;">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">관리자 페이지</div>
       <div class="card-body">

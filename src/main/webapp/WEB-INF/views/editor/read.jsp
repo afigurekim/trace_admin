@@ -68,6 +68,8 @@
 					<!-- 게시글 등록하기구나   -->
 					<form role = "form" method="POST">
 						<input type = "hidden" name = 'bno' value = "${boardVO.bno} "/>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						
 					</form>
 						<!--  form title -->
 						<div class="form-group">

@@ -59,12 +59,12 @@ console.log("인덱스입니다"+index);
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <colgroup>
-                	<col width="5%"/>
+                	<col width="10%"/>
+                	<col width="15%"/>
+                	<col width="10%"/>
                 	<col width="15%"/>
                 	<col width="20%"/>
-                	<col width="15%"/>
                 	<col width="20%"/>
-                	<col width="15%"/>
            	    	<col width="5%"/>
                
                 </colgroup>
