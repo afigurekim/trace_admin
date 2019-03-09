@@ -37,16 +37,21 @@ $(function(){
 			}
 		}
 	});
-});
+
+console.log(star1+"스타1");
+console.log(star2+"스타2");
+console.log(star3+"스타3");
+console.log(star4+"스타4");
+console.log(star5+"스타5");
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: ["1점", "2점", "3점", "4점",'5점'],
     datasets: [{
-      data: [star1,star2,star3,star4,star5],
+      data: [star1.toString(),star2.toString(),star3.toString(),star4.toString(),star5.toString()],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745','#f18973'],
     }],
   },
 });
-
+});

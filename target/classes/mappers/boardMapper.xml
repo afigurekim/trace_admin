@@ -21,7 +21,7 @@
 	</update>
 
 	<delete id="delete">
-		delete from V where bno = #{bno}
+		delete from TBL_EDITOR where bno = #{bno}
 	</delete>
 
 	<select id="listAll" resultType="org.zerock.domain.BoardVO">

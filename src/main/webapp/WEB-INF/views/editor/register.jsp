@@ -138,6 +138,7 @@
 								</div>
 							</div>
 						</div>
+	            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
 						<button type="reset" class="btn btn-default">취소하기</button>
 						<button type="submit" class="btn btn-primary">등록하기</button>

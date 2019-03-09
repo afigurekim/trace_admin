@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.zerock.mappers.noticeMapper">
+
+<select id="listAll" resultType="org.zerock.domain.NoticeVO">
+		<![CDATA[
+			select 
+			bno,title,content,writer,reg_date,view_cnt 
+			from 
+			NOTICE
+			where bno>0 
+			order by bno desc,reg_date desc
+		]]>
+</select>
+
+<select id="read" resultType="org.zerock.domain.NoticeVO">
+	select bno,title,content,writer,reg_date,update_date,view_cnt from NOTICE where bno=#{bno}
+</select>
+
+<insert id="create">
+	insert into NOTICE(title,writer,content) values(#{title},#{writer},#{content});
+</insert>
+
+<update id="update">
+	update NOTICE set title=#{title}, writer=#{writer},content=#{content} where bno=#{bno}
+</update>
+
+<delete id="delete">
+	delete from NOTICE where bno=#{bno}
+</delete>
+
+<select id="listPage" resultType="org.zerock.domain.NoticeVO">
+	<![CDATA[
+		select
+		bno,title,content,writer,reg_date,view_cnt
+		from
+		NOTICE
+		where bno>0
+		order by bno desc,reg_date desc
+		limit #{page},10
+	]]>
+</select>
+
+<select id="listCriteria" resultType="org.zerock.domain.NoticeVO">
+	<![CDATA[
+		select
+		bno,title,content,writer,reg_date,view_cnt
+		from
+		NOTICE
+		where bno>0
+		order by bno desc,reg_date desc
+		limit #{pageStart},#{perPageNum}
+	]]>
+</select>
+
+<select id="countPaging" resultType="int">
+	<![CDATA[
+		select count(bno) from NOTICE
+	]]>
+</select>
+
+<select id="listSearch" resultType="org.zerock.domain.NoticeVO">
+	<![CDATA[
+		select*from NOTICE where bno>0
+	]]>
+
+	<include refid="search"></include>
+
+		<![CDATA[
+		order by bno desc
+		limit #{pageStart},#{perPageNum}
+		]]>
+</select>
+
+<select id="listSearchCount" resultType="int">
+	<![CDATA[
+	select count(bno) from NOTICE 
+	]]>
+		<include refid="search"></include>
+	<![CDATA[
+	where bno>0
+	]]>
+</select>
+
+<update id="updateViewCnt">
+<![CDATA[
+update NOTICE set view_cnt=view_cnt+1 where bno=#{bno}
+]]>
+</update>
+	<sql id="search">
+		<if test="searchType != null">
+				<if test="searchType == 't'.toString()">
+					and title like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType == 'c'.toString()">
+					and content like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType == 'tc'.toString()">
+					and ( title like CONCAT('%', #{keyword}, '%') OR content like
+					CONCAT('%', #{keyword}, '%'))
+				</if>
+			</if>
+	</sql>
+
+
+</mapper>
