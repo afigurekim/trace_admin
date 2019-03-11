@@ -28,7 +28,17 @@ public class CategoryController {
 	@RequestMapping(value = "/category/listAll", method = RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info("show all list...........");
+		
+		
+		List<Historic_siteVO> list = service.allHistoric();
+
+		model.addAttribute("list",list);
+	}// end listAll
+	
+	@RequestMapping(value="/category/auto_classify",method=RequestMethod.GET)
+	public String auto_classify() throws Exception{
 		List<Historic_site_detailVO> detail = service.allDetail();
+		if(detail.size()>=1) {
 		for(int i=0;i<detail.size();i++) {
 			System.out.println(detail.get(i).getDetail());
 			
@@ -87,12 +97,9 @@ public class CategoryController {
 			}
 			
 		}
-		
-		List<Historic_siteVO> list = service.allHistoric();
-
-		model.addAttribute("list",list);
-	}// end listAll
-
+		}
+		return "home";
+	}
 	@ResponseBody
 	@RequestMapping(value="/modifyCategory",method=RequestMethod.POST)
 	public void modifyCategory(@RequestParam("sbno") Integer bno,@RequestParam("speriod") String speriod,@RequestParam("sthema") String sthema)throws Exception{

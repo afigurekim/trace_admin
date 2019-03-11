@@ -29,7 +29,24 @@
 
 <!-- Custom styles for this template-->
 <link href="../../../resources/css/sb-admin.css" rel="stylesheet">
+<style>
+#category_list ul{
 
+color:white;
+display:none;  /* 평상시에는 서브메뉴가 안보이게 하기 */
+list-style-type:none;
+text-decoration:none;
+}
+#category_list ul>li>a{
+text-decoration:none;
+color:white;
+}
+#category_list:hover ul{
+display:block;
+}
+
+
+</style>
 </head>
 
 <body id="page-top">
@@ -53,11 +70,16 @@
 				class="fas fa-fw fa-tachometer-alt"></i> <span>메인 페이지</span>
 		</a></li>
 		<!-- 카테고리 관리 -->
-		<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle"	href="/category/listAll" id="pagesDropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i
+		<li class="nav-item dropdown" id="category_list">
+		<a class="nav-link dropdown-toggle"	href="#" id="pagesDropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i
 				class="fas fa-fw fa-folder"></i> <span>카테고리 관리</span>
 		</a>
-			</li>
+			<ul style="color:white;">
+				<li><a href="/category/auto_classify">자동분류</a></li>
+				<li><a href="/category/listAll">수동분류</a></li>
+				<li><a>유적지삭제</a></li>
+			</ul>
+		</li>
 
 		<!-- 에디터 추천코스  관리 -->
 		<li class="nav-item dropdown">
