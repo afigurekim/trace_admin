@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Historic_siteVO;
+import org.zerock.domain.Historic_site_detailVO;
 import org.zerock.domain.Historic_site_starVO;
 import org.zerock.domain.VisitorVO;
 
@@ -34,5 +35,11 @@ public interface BoardDAO {
 	public String selectPeriod(int bno)throws Exception;
 
 	public void updateCategory(String period,String thema,int bno)throws Exception;
+	
+	public List<Historic_site_detailVO> allDetail()throws Exception;
+	
+	public void updatePeriod(int bno,String period)throws Exception;
+	
+	public void updateThema(int bno,String thema)throws Exception;
 	
 }
