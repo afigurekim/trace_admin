@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Historic_siteVO;
+import org.zerock.domain.Historic_site_detailVO;
 import org.zerock.domain.Historic_site_starVO;
 import org.zerock.domain.VisitorVO;
 
@@ -93,5 +94,29 @@ public class BoardDAOImpl implements BoardDAO {
 		map.put("thema", thema);
 		map.put("bno", bno);
 		session.update(namespace+".updateCategory",map);
+	}
+
+	@Override
+	public List<Historic_site_detailVO> allDetail() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".allDetail");
+	}
+
+	@Override
+	public void updatePeriod(int bno, String period) throws Exception {
+		// TODO Auto-generated method stub
+		Map <String,Object> map = new HashMap<String,Object>();
+		map.put("bno", bno);
+		map.put("period", period);
+		session.update(namespace+".updatePeriod",map);
+	}
+
+	@Override
+	public void updateThema(int bno, String thema) throws Exception {
+		// TODO Auto-generated method stub
+		Map <String,Object> map = new HashMap<String,Object>();
+		map.put("bno", bno);
+		map.put("thema", thema);
+		session.update(namespace+".updateThema",map);
 	}
 }

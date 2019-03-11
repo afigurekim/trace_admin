@@ -61,6 +61,11 @@
 	
 	</select>
 	
+	<select id="allDetail" resultType="org.zerock.domain.Historic_site_detailVO">
+	<![CDATA[
+		select * from HISTORIC_SITE_DETAIL
+	]]>
+	</select>
 	<select id="selectThema" resultType="String">
 	<![CDATA[
 		select thema from HISTORIC_SITE where bno=#{bno}
@@ -76,6 +81,19 @@
 	<update id="updateCategory">
 	<![CDATA[
 		update HISTORIC_SITE set period =#{period},thema=#{thema} where bno=#{bno}
+	]]>
+	
+	</update>
+	
+	<update id="updatePeriod">
+	<![CDATA[
+		update HISTORIC_SITE set period=#{period} where bno=#{bno}
+	]]>
+	</update>
+	
+	<update id="updateThema">
+	<![CDATA[
+		update HISTORIC_SITE set thema=#{thema} where bno=#{bno}
 	]]>
 	
 	</update>
