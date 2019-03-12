@@ -7,7 +7,7 @@
 <!-- include summernote css/js -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script
+ <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css"
@@ -15,16 +15,35 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 <script src="../resources/js/summernote/summernote-ko-KR.js"></script>
-
+<script src="../resources/js/summernote/summernote-ext-elfinder.js"></script>
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <script>
-	//파일 확장자 존재 검사
-	function checkImageType(fileName) {
-		var pattern = /jpg|gif|png|jpeg/i;
-		return fileName.match(pattern);
+var filelist = new Array();
+var html;
+
+function checkImageType(fileName) {
+	var pattern = /jpg$|gif$|png$|jpeg$/i;
+	return fileName.match(pattern);
+}
+
+function getOriginalName(filename) {
+	if (checkImageType(fileName)) {
+		return;
 	}
+	var idx = fileName.indexOf("_") + 1;
+	return fileName.substr(idx);
+}
 
-	//화면에 데이터 출력 함수 
+function getImageLink(fileName) {
+	if (!checkImageType(fileName)) {
+		return;
+	}
+	var front = fileName.substr(0, 12);
+	var end = fileName.substr(14);
 
+	return front + end;
+}
 	//summernote 기본 설정 
 	$(document).ready(function() {
 		$('#summernote').summernote({
@@ -32,44 +51,47 @@
 			minHeight : null,
 			maxHeight : null,
 			focus : true,
-			// 이미지 업로드를 위한 함수 
-		 	/* callbacks : {
-				onImageUpload : function(files) {
+			
+			callbacks : {
+				onImageUpload : function(files, editor, welEditable) {
 					console.log(files);
-					 for (var i = files.length - 1; i >= 0; i--) {
+					for (var i = files.length - 1; i >= 0; i--) {
+						console.log(this);
 						sendFile(files[i], this);
-					} 
+
+					}
 				}
-			}  */
+			}  
 		});
 	});
-	/* function sendFile(file, editor) { //summernote 에서 파일저장을 위한 함수 
+	function sendFile(file, el) { //summernote 에서 파일저장을 위한 함수 
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		
 		var form_data = new FormData();
 		form_data.append('file', file);
 
 		$.ajax({
-			url : 'register',
+			url : "/editor/upload",
 			data : form_data,
 			type : "POST",
 			contentType : false,
 			processData : false,
 			cache : false,
 			enctype : 'multipart/form-data',
-			success : function(url) { // 이미지 처리가 성공한경우
+
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader(header, token);
+			},
+			success : function(data) { // 이미지 처리가 성공한경우
 				//에디터에 이미지 출력
-				$(editor).summernote('editor.insertImage', url);
+				$('.note-editable').append(
+						"<img src ='/editor/displayFile?filename="+data+"'/>");
 			}
 		});
-	} */
+	} 
 	//파일이름 길이 줄여주는 함수
 
-	function getOriginalName(fileName) {
-		if (checkImageType(fileName)) {
-			return;
-		}
-		var idx = fileName.indexOf("_") + 1;
-		return fileName.substr(idx);
-	}
 </script>
 <style>
 #cwriter {
@@ -122,6 +144,7 @@
 									<option value = "1">가족</option>
 									<option value = "2" >연인</option>
 									<option value = "3" >교육</option>
+									<option value="4">종교</option>
 								</select>
 							</div>
 						</div>
@@ -144,10 +167,6 @@
 						<button type="submit" class="btn btn-primary">등록하기</button>
 					</form>
 				</div>
-
-
-				<div class="card-footer small text-muted">Updated yesterday at
-					11:59 PM</div>
 			</div>
 		</div>
 	</div>

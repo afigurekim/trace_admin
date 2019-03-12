@@ -52,7 +52,7 @@ display:block;
 <body id="page-top">
 
 	<!-- 상단의 bar -->
-	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+	<nav class="navbar navbar-dark bg-dark static-top">
 		<a class="navbar-brand mr-1" href="/">관리자 페이지</a>
 		<div>
 			<form class="form-inline" action="/customLogout" method="post">
