@@ -56,7 +56,9 @@ public class HomeController {
 				List<String> visit_list=new ArrayList<String>();
 				SimpleDateFormat test0= new SimpleDateFormat("hh a");
 				List<VisitorVO> list=service.allVisitor();
+				System.out.println(list.size()+"방문자 수");
 				for(int i=0;i<list.size();i++) {
+					System.out.println(list.get(i).getVisit_time());
 					System.out.println(test0.format(list.get(i).getVisit_time()));
 					visit_list.add(test0.format(list.get(i).getVisit_time()));
 				}

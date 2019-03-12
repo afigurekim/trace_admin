@@ -110,7 +110,7 @@ public class EditorController {
 		System.out.println(file.getSize());
 		String name = file.getOriginalFilename();
 
-		String filepath = "C:\\zzz\\";
+		String filepath = "/opt/imgs/";
 		File f = new File(filepath + name);
 
 		file.transferTo(f);

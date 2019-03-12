@@ -16,7 +16,7 @@
 	rel="stylesheet">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
-<script src="../resources/js/summernote/summernote-ko-KR.js"></script>
+<script src="../../../resources/js/summernote/summernote-ko-KR.js"></script>
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 

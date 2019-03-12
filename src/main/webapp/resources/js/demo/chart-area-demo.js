@@ -35,7 +35,7 @@ $(function(){
 					am_10++;
 					console.log(am_10+"am 10");
 				}else if(data.visit[i]=="11 오전"){
-					consol.elog(am_11);
+					console.log(am_11);
 					am_11++;
 				}else if(data.visit[i]=="12 오후"){
 					pm_12++;
@@ -78,7 +78,7 @@ $(function(){
 	      pointHoverBackgroundColor: "rgba(2,117,216,1)",
 	      pointHitRadius: 50,
 	      pointBorderWidth: 2,
-	      data: [am_9,am_10,am_11,pm_12,pm_1,pm_2,pm_3,pm_4,pm_5,pm_6,pm_7,pm_8,pm_9],
+	      data: [am_9.toString(),am_10.toString(),am_11.toString(),pm_12.toString(),pm_1.toString(),pm_2.toString(),pm_3.toString(),pm_4.toString(),pm_5.toString(),pm_6.toString(),pm_7.toString(),pm_8.toString(),pm_9.toString()],
 	    }],
 	  },
 	  options: {
@@ -110,6 +110,8 @@ $(function(){
 	    }
 	  }
 	});
+	
+	
 });
 // Area Chart Example
 
