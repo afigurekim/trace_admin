@@ -26,7 +26,7 @@ $(function(){
 
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
-var myLineChart = new Chart(ctx, {
+var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: [names[0],names[1],names[2],names[3],names[4]],

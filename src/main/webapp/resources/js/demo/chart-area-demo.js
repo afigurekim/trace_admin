@@ -33,9 +33,7 @@ $(function(){
 					am_9++;
 				}else if(data.visit[i].indexOf("10 오전")!=-1){
 					am_10++;
-					console.log(am_10+"am 10");
 				}else if(data.visit[i]=="11 오전"){
-					console.log(am_11);
 					am_11++;
 				}else if(data.visit[i]=="12 오후"){
 					pm_12++;
@@ -61,8 +59,21 @@ $(function(){
 			}
 		}
 	});
+	console.log(am_9+"오전9시");
+	console.log(am_10+"오전 10시");
+	console.log(am_11+"오전 11시");
+	console.log(pm_12+"오후 12시");
+	console.log(pm_1+"오후 1시");
+	console.log(pm_2+"오후 2시");
+	console.log(pm_3+"오후 3시");
+	console.log(pm_4+"오후 4시");
+	console.log(pm_5+"오후 5시");
+	console.log(pm_6+"오후 6시");
+	console.log(pm_7+"오후 7시");
+	console.log(pm_8+"오후 8시");
+	console.log(pm_9+"오후 9시");
 	var ctx = document.getElementById("myAreaChart");
-	var myLineChart = new Chart(ctx, {
+	var myAreaChart = new Chart(ctx, {
 	  type: 'line',
 	  data: {
 	    labels: ["9시", "10시", "11시", "12시", "13시", "14시", "15시", "16시", "17시", "18시", "19시", "20시", "21시"],
@@ -97,7 +108,7 @@ $(function(){
 	      yAxes: [{
 	        ticks: {
 	          min: 0,
-	          max: 100,
+	          max: 300,
 	          maxTicksLimit: 5
 	        },
 	        gridLines: {

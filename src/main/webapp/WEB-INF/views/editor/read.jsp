@@ -34,7 +34,6 @@
 	//summernote 호출 함수
 	$(document).ready(function() {
 		$('#summernote').summernote({
-			height : 500,
 			minHeight : null,
 			maxHeight : null,
 			focus : true,

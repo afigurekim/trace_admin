@@ -71,14 +71,15 @@ display:block;
 		</a></li>
 		<!-- 카테고리 관리 -->
 		<li class="nav-item dropdown" id="category_list">
-		<a class="nav-link dropdown-toggle"	href="#" id="pagesDropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i
+		<a class="nav-link dropdown-toggle"	href="/category/listAll" id="pagesDropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i
 				class="fas fa-fw fa-folder"></i> <span>카테고리 관리</span>
 		</a>
-			<ul style="color:white;">
+			<!-- <ul style="color:white;">
 				<li><a href="/category/auto_classify">자동분류</a></li>
 				<li><a href="/category/listAll">수동분류</a></li>
 				<li><a>유적지삭제</a></li>
 			</ul>
+			 -->
 		</li>
 
 		<!-- 에디터 추천코스  관리 -->
