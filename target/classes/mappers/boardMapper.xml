@@ -3,8 +3,8 @@
 <mapper namespace="org.zerock.mappers.boardMapper">
 
 	<insert id="create">
-		insert into TBL_EDITOR(title,content,writer,theme)
-		values (#{title},#{content},#{writer},#{theme})
+		insert into TBL_EDITOR(title,content,writer,theme,state)
+		values (#{title},#{content},#{writer},#{theme},#{state})
 	</insert>
 
 	<select id="read" resultType="org.zerock.domain.BoardVO">
@@ -16,7 +16,7 @@
 	</select>
 
 	<update id="update">
-		update TBL_EDITOR set title=#{title}, content =#{content}, theme=#{theme}
+		update TBL_EDITOR set title=#{title}, content =#{content}, theme=#{theme},state=#{state}
 		where bno = #{bno}
 	</update>
 
@@ -97,4 +97,11 @@
 	]]>
 	
 	</update>
+	
+	
+	<select id="historic_replylist" resultType="org.zerock.domain.ReplyVO">
+	<![CDATA[
+		select H.SITE_NAME,R.RNO,R.REPLY_TEXT,R.REPLYER,R.REG_DATE from HISTORIC_SITE_REPLY as R,HISTORIC_SITE as H where R.BNO=H.BNO; 
+	]]>
+	</select>
 </mapper>

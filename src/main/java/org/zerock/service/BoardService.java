@@ -6,6 +6,7 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Historic_siteVO;
 import org.zerock.domain.Historic_site_detailVO;
 import org.zerock.domain.Historic_site_starVO;
+import org.zerock.domain.ReplyVO;
 import org.zerock.domain.VisitorVO;
 
 public interface BoardService {
@@ -39,5 +40,8 @@ public interface BoardService {
 	public void updatePeriod(int bno,String period)throws Exception;
 	
 	public void updateThema(int bno,String thema)throws Exception;
+	
+	public List<ReplyVO> historic_replylist() throws Exception;
+	
 	
 }

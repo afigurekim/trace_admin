@@ -94,6 +94,16 @@ display:block;
 		<a class="nav-link dropdown-toggle" href="/notice/list" id="pagesDropdown" role="button"  aria-haspopup="true" aria-expanded="false"> 
 			<i class="fas fa-fw fa-folder"></i> <span>공지사항 관리</span>
 		</a>
-			</li>	
-			
+			</li>
+		
+						
+		<li class="nav-item dropdown" id="category_list">
+		<a class="nav-link dropdown-toggle" href="/reply/list" id="pagesDropdown" role="button"  aria-haspopup="true" aria-expanded="false"> 
+			<i class="fas fa-fw fa-folder"></i> <span>댓글 관리</span>
+		</a>
+			<ul>
+				<li><a href="/reply/historic_list">유적지</a></li>
+				<li><a href="/reply/editor_list">에디터 추천코스</a></li>
+			</ul>
+		</li>		
 	</ul>

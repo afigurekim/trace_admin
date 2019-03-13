@@ -12,7 +12,17 @@ public class BoardVO {
 	private Date regdate;
 	private int viewcnt;
 	private int theme;
+	private String state;
 	
+	
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 	public Integer getBno() {
 		return bno;
 	}

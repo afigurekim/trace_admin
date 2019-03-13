@@ -36,7 +36,7 @@
 </beans:bean>
 
  <beans:bean id = "uploadPath" class="java.lang.String">
-	<beans:constructor-arg value ="/opt/imgs/"></beans:constructor-arg>
+	<beans:constructor-arg value ="C:\\zzz\\"></beans:constructor-arg>
 </beans:bean> 
 
 

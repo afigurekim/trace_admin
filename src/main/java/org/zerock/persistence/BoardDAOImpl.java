@@ -12,6 +12,7 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Historic_siteVO;
 import org.zerock.domain.Historic_site_detailVO;
 import org.zerock.domain.Historic_site_starVO;
+import org.zerock.domain.ReplyVO;
 import org.zerock.domain.VisitorVO;
 
 @Repository
@@ -118,5 +119,11 @@ public class BoardDAOImpl implements BoardDAO {
 		map.put("bno", bno);
 		map.put("thema", thema);
 		session.update(namespace+".updateThema",map);
+	}
+
+	@Override
+	public List<ReplyVO> historic_replylist() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".historic_replylist");
 	}
 }

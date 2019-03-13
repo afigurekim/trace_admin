@@ -132,5 +132,33 @@ public class HomeController {
 			return entity;
 
 	}
+
+	
+	@RequestMapping(value="/reply/historic_list",method=RequestMethod.GET)
+	public String historic_replylist(Model model) {
+		
+		try {
+			model.addAttribute("list",service.historic_replylist());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "/reply/historic_listAll";
+	}
+	@RequestMapping(value="/reply/editor_list",method=RequestMethod.GET)
+	public String editor_replylist() {
+		
+			
+		return "/reply/editor_listAll";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/deleteReply", method = RequestMethod.POST)
+	public String  DeleteReply(int sbno) {
+		System.out.println(sbno);
+		
+		return "";
+
+	}
 	
 }

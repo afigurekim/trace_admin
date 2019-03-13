@@ -63,32 +63,31 @@ function getImageLink(fileName) {
 		});
 	});
 	function sendFile(file, el) { //summernote 에서 파일저장을 위한 함수 
-		var token = $("meta[name='_csrf']").attr("content");
-		var header = $("meta[name='_csrf_header']").attr("content");
-		
-		var form_data = new FormData();
-		form_data.append('file', file);
+	      var token = $("meta[name='_csrf']").attr("content");
+	      var header = $("meta[name='_csrf_header']").attr("content");
+	      
+	      var form_data = new FormData();
+	      form_data.append('file', file);
 
-		$.ajax({
-			url : "/editor/upload",
-			data : form_data,
-			type : "POST",
-			contentType : false,
-			processData : false,
-			cache : false,
-			enctype : 'multipart/form-data',
+	      $.ajax({
+	         url : "/editor/upload",
+	         data : form_data,
+	         type : "POST",
+	         contentType : false,
+	         processData : false,
+	         cache : false,
+	         enctype : 'multipart/form-data',
 
-			beforeSend : function(xhr) {
-				xhr.setRequestHeader(header, token);
-			},
-			success : function(data) { // 이미지 처리가 성공한경우
-				//에디터에 이미지 출력
-				console.log(data);
-				$('.note-editable').append(
-						"<img src ='/editor/displayFile?filename="+data+"'/>");
-			}
-		});
-	} 
+	         beforeSend : function(xhr) {
+	            xhr.setRequestHeader(header, token);
+	         },
+	         success : function(data) { // 이미지 처리가 성공한경우
+	            //에디터에 이미지 출력
+	            $('#summernote').summernote('editor.insertImage',data);
+	            //$('.note-editable').append("<img src ='/editor/displayFile?filename="+data+"'/>");
+	         }
+	      });
+	   } 
 	//파일이름 길이 줄여주는 함수
 
 </script>
@@ -99,8 +98,12 @@ function getImageLink(fileName) {
 
 #cselect {
 	display: inline-block;
+}#language{
+		display: inline-block;
+	
 }
 </style>
+
 
 <div id="content-wrapper">
 
@@ -144,6 +147,16 @@ function getImageLink(fileName) {
 									<option value = "2" >연인</option>
 									<option value = "3" >교육</option>
 									<option value="4">종교</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group" id="language">
+							<div class="col-md-12">
+								<label>언어</label> <select class="form-control" id = "state" name = 'state'>
+									<option value ="0" >한국어</option> 
+									<option value = "1">중국어</option>
+									<option value = "2" >영어</option>
+								
 								</select>
 							</div>
 						</div>

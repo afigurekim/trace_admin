@@ -9,12 +9,16 @@
 <security:http>
 	<security:intercept-url pattern="/customLogin" access="permitAll"/>
 		<security:intercept-url pattern="/login" access="permitAll"/>
-	
+		
 		<security:intercept-url pattern="/*" access="hasRole('ROLE_ADMIN')"/>
 	
 	<security:intercept-url pattern="/editor/*" access="hasRole('ROLE_ADMIN')"/>
 		<security:intercept-url pattern="/category/*" access="hasRole('ROLE_ADMIN')"/>
 		<security:intercept-url pattern="/modifyCategory" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/deleteReply" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/reply/historic_list" access="hasRole('ROLE_ADMIN')"/>
+				<security:intercept-url pattern="/reply/editor_list" access="hasRole('ROLE_ADMIN')"/>
+		
 	<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
 	<security:logout logout-url="/customLogout" invalidate-session="true"/>
 </security:http>
