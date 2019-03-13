@@ -113,7 +113,7 @@ public class EditorController {
 	      UUID uid = UUID.randomUUID();
 	      String name = uid.toString()+"_"+file.getOriginalFilename();
 
-	      String filepath = "C:\\zzz\\";
+	      String filepath = "/opt/imgs/";
 	      File f = new File(filepath + name);
 
 	      file.transferTo(f);

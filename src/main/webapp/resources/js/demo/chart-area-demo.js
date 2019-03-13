@@ -28,50 +28,38 @@ $(function(){
 		async:false,
 		success:function(data){
 			for(var i=0;i<data.visit.length;i++){
-				if(data.visit[i].indexOf("9 오전")!=-1){
+				console.log(data.visit[i]);
+				if(data.visit[i].indexOf("09 AM")!=-1){
 					
 					am_9++;
-				}else if(data.visit[i].indexOf("10 오전")!=-1){
+				}else if(data.visit[i].indexOf("10 AM")!=-1){
 					am_10++;
-				}else if(data.visit[i]=="11 오전"){
+				}else if(data.visit[i]=="11 AM"){
 					am_11++;
-				}else if(data.visit[i]=="12 오후"){
+				}else if(data.visit[i]=="12 PM"){
 					pm_12++;
-				}else if(data.visit[i]=="01 오후"){
+				}else if(data.visit[i]=="01 PM"){
 					pm_1++;
-				}else if(data.visit[i]=="02 오후"){
+				}else if(data.visit[i]=="02 PM"){
 					pm_2++;
-				}else if(data.visit[i]=="03 오후"){
+				}else if(data.visit[i]=="03 PM"){
 					pm_3++;
-				}else if(data.visit[i]=="04 오후"){
+				}else if(data.visit[i]=="04 PM"){
 					pm_4++;
-				}else if(data.visit[i]=="05 오후"){
+				}else if(data.visit[i]=="05 PM"){
 					pm_5++;
-				}else if(data.visit[i]=="06 오후"){
+				}else if(data.visit[i]=="06 PM"){
 					pm_6++;
-				}else if(data.visit[i]=="07 오후"){
+				}else if(data.visit[i]=="07 PM"){
 					pm_7++;
-				}else if(data.visit[i]=="08 오후"){
+				}else if(data.visit[i]=="08 PM"){
 					pm_8++;
-				}else if(data.visit[i]=="09 오후"){
+				}else if(data.visit[i]=="09 PM"){
 					pm_9++;
 				}
 			}
-		}
-	});
-	console.log(am_9+"오전9시");
-	console.log(am_10+"오전 10시");
-	console.log(am_11+"오전 11시");
-	console.log(pm_12+"오후 12시");
-	console.log(pm_1+"오후 1시");
-	console.log(pm_2+"오후 2시");
-	console.log(pm_3+"오후 3시");
-	console.log(pm_4+"오후 4시");
-	console.log(pm_5+"오후 5시");
-	console.log(pm_6+"오후 6시");
-	console.log(pm_7+"오후 7시");
-	console.log(pm_8+"오후 8시");
-	console.log(pm_9+"오후 9시");
+	
+
 	var ctx = document.getElementById("myAreaChart");
 	var myAreaChart = new Chart(ctx, {
 	  type: 'line',
@@ -121,7 +109,8 @@ $(function(){
 	    }
 	  }
 	});
-	
+		}
+	});
 	
 });
 // Area Chart Example
