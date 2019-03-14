@@ -18,6 +18,7 @@
 		<security:intercept-url pattern="/deleteReply" access="hasRole('ROLE_ADMIN')"/>
 		<security:intercept-url pattern="/reply/historic_list" access="hasRole('ROLE_ADMIN')"/>
 				<security:intercept-url pattern="/reply/editor_list" access="hasRole('ROLE_ADMIN')"/>
+						<security:intercept-url pattern="/deleteEditorReply" access="hasRole('ROLE_ADMIN')"/>
 		
 	<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
 	<security:logout logout-url="/customLogout" invalidate-session="true"/>

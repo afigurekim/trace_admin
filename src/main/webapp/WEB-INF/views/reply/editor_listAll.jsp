@@ -5,7 +5,30 @@
 <%@ include file ="../template/header.jsp" %>
 <script>
 $(function(){
-
+	$(".delete").click(function(){
+		var index=$(".delete").index($(this));
+		var index2;
+		var bno=0;
+		bno=$(".rno").eq(index).text();
+		console.log(bno+"bno에요");
+		
+			
+			$.ajax({
+				url:"/deleteEditorReply",
+				type:'post',
+				data:{
+					sbno:bno,
+				
+				},
+				beforeSend:function(xhr){
+					xhr.setRequestHeader("${_csrf.headerName}","${_csrf.token}");
+				},
+				success:function(data){
+					alert("삭제되었습니다");
+					window.location.href="/reply/editor_list";
+				}
+			});
+		});
 });  
 </script>    
     <div id="content-wrapper">
@@ -31,8 +54,8 @@ $(function(){
                 </colgroup>
                 <thead>
                   <tr>
-                    <th>유적지이름</th>
-                    <th>댓글 번호</th>
+                    <th>글 번호</th>
+                    <th> 댓글 번호</th>
                     <th>내용</th>
                     <th>날짜</th>
                     <th>글쓴이</th>
@@ -42,7 +65,21 @@ $(function(){
                		
                 <tbody>
                	
+                  <c:forEach items="${list}" var="list">
                   
+                  <tr>
+                    <td>${list.bno}</td>
+                    <td class="rno">${list.rno}</td>
+					<td>${list.replytext}</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+											value="${list.regdate}" /></td>
+					<td>${list.replyer}</td>      
+					
+					<td>
+					<button type="button" class="delete">삭제</button>
+					</td>
+                  </tr>
+                  </c:forEach>
                    
                  
                 </tbody>
