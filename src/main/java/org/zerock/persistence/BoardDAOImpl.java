@@ -114,12 +114,11 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void updateThema(int bno, String thema) throws Exception {
+	public void updateThema(Historic_siteVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		Map <String,Object> map = new HashMap<String,Object>();
-		map.put("bno", bno);
-		map.put("thema", thema);
-		session.update(namespace+".updateThema",map);
+	
+		session.update(namespace+".updateThema",vo);
 	}
 
 	

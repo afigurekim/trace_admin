@@ -42,7 +42,7 @@ public interface BoardDAO {
 	
 	public void updatePeriod(int bno,String period)throws Exception;
 	
-	public void updateThema(int bno,String thema)throws Exception;
+	public void updateThema(Historic_siteVO vo)throws Exception;
 	
 	
 	//댓글 관리

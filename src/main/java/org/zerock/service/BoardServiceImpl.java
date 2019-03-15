@@ -114,9 +114,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void updateThema(int bno, String thema) throws Exception {
+	public void updateThema(Historic_siteVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		dao.updateThema(bno,thema);
+		dao.updateThema(vo);
 	}
 
 	

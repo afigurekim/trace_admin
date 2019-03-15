@@ -99,7 +99,7 @@ console.log("인덱스입니다"+index);
 					</td>      
 					<td>
 					<form class="thema" >
-					<input type="checkbox" name="thema" value="고육">교육
+					<input type="checkbox" name="thema" value="교육">교육
 					<input type="checkbox" name="thema" value="데이트">데이트
 					<input type="checkbox" name="thema" value="가족">가족
 					<input type="checkbox" name="thema" value="종교">종교
