@@ -1,88 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>관리자페이지 - Login</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-  <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css" rel="stylesheet">
-<style>
-#forlogo {
-   text-align: center;
-}
-img {
-   width: 200px;
-   height: auto;
-   margin-right : 200px;
-   margin-top : 50px;
-   margin-bottom : 10px;
-}
-.card{
-   margin-top : 0px;
-}
-.btn .btn-primary{
-   width
-}
-</style>
+	<title>관리자페이지 - Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="resources/imgs/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/loginv2/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/loginv2/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="resources/loginv2/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/loginv2/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/loginv2/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="resources/loginv2/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/css/util.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/main.css">
+<!--===============================================================================================-->
 </head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="post" action="/login">
+                    <span class="login100-form-title">
+                        <img alt="" src="resources/imgs/logo-t-s-b.png" width="70%"/>
+                    </span>
+					<span class="login100-form-title p-b-26">
+						관리자 페이지
+					</span>
+                    <div class="div-gap-50"></div>
 
-<body class="bg-dark">
-   <div id="forlogo" style="margin-top:100px;">
-      <img alt="" src="resources/imgs/logo.png">
-   </div>
-  <div class="container" style="margin-top:-50px;">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">관리자 페이지</div>
-      <div class="card-body">
-        <form method="post" action="/login">
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="text" id="inputId" name="username" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputId">관리자 아이디</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="required">
-              <label for="inputPassword">관리자 비밀번호</label>
-            </div>
-          </div>
-          <div class="form-group">
-          </div>
-          <!--  로그인시 넘어갈 페이지  -->
-          <button type="submit" class="btn btn-primary">로그인</button>
-          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
-      </div>
-    </div>
-  </div>
+					<div class="wrap-input100 validate-input" data-validate = "아이디를 입력하세요">
+						<input class="input100" type="text" name="username">
+						<span class="focus-input100" data-placeholder="아이디"></span>
+					</div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="resources/vendor/jquery/jquery.min.js"></script>
-  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+					<div class="wrap-input100 validate-input" data-validate="비밀번호를 입력하세요">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="비밀번호"></span>
+					</div>
 
-  <!-- Core plugin JavaScript-->
-  <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button type="submit" class="login100-form-btn">
+								로그인
+							</button>
+						</div>
+					</div>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="resources/loginv2/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/loginv2/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/loginv2/bootstrap/js/popper.js"></script>
+	<script src="resources/loginv2/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/loginv2/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/loginv2/daterangepicker/moment.min.js"></script>
+	<script src="resources/loginv2/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/loginv2/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/js/main.js"></script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
