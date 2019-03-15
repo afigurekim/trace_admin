@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.EditorReplyVO;
 import org.zerock.domain.Historic_siteVO;
 import org.zerock.domain.Historic_site_detailVO;
 import org.zerock.domain.Historic_site_starVO;
@@ -113,15 +114,37 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void updateThema(int bno, String thema) throws Exception {
+	public void updateThema(Historic_siteVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		dao.updateThema(bno,thema);
+		dao.updateThema(vo);
 	}
 
+	
+	//댓글 
 	@Override
 	public List<ReplyVO> historic_replylist() throws Exception {
 		// TODO Auto-generated method stub
 		return dao.historic_replylist();
+	}
+
+	
+	
+	@Override
+	public void deleteReply(int rno) throws Exception {
+		// TODO Auto-generated method stub
+		dao.deleteReply(rno);
+	}
+
+	@Override
+	public List<EditorReplyVO> editor_replylist() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.editor_replylist();
+	}
+
+	@Override
+	public void deleteEditReply(int rno) throws Exception {
+		// TODO Auto-generated method stub
+		dao.deleteEditReply(rno);
 	}
 	
 	

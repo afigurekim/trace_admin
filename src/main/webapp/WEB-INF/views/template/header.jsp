@@ -98,7 +98,7 @@ display:block;
 		
 						
 		<li class="nav-item dropdown" id="category_list">
-		<a class="nav-link dropdown-toggle" href="/reply/list" id="pagesDropdown" role="button"  aria-haspopup="true" aria-expanded="false"> 
+		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button"  aria-haspopup="true" aria-expanded="false"> 
 			<i class="fas fa-fw fa-folder"></i> <span>댓글 관리</span>
 		</a>
 			<ul>

@@ -31,7 +31,10 @@ public class CategoryController {
 		
 		
 		List<Historic_siteVO> list = service.allHistoric();
-
+		/*for(int i=0;i<list.size();i++) {
+		list.get(i).setThema(list.get(i).getThema().replace("고육", "교육"));
+		service.updateThema(list.get(i));
+		}*/
 		model.addAttribute("list",list);
 	}// end listAll
 	
@@ -92,9 +95,7 @@ public class CategoryController {
 				service.updatePeriod(detail.get(i).getBno(),"근현대");
 
 			}
-			if(detail.get(i).getDetail().indexOf("사찰")!=-1) {
-				service.updateThema(detail.get(i).getBno(),"종교");
-			}
+		
 			
 		}
 		}

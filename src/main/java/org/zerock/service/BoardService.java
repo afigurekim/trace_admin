@@ -3,6 +3,7 @@ package org.zerock.service;
 import java.util.List;
 
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.EditorReplyVO;
 import org.zerock.domain.Historic_siteVO;
 import org.zerock.domain.Historic_site_detailVO;
 import org.zerock.domain.Historic_site_starVO;
@@ -39,9 +40,18 @@ public interface BoardService {
 	
 	public void updatePeriod(int bno,String period)throws Exception;
 	
-	public void updateThema(int bno,String thema)throws Exception;
+	public void updateThema(Historic_siteVO vo)throws Exception;
 	
+	
+	//댓글관리
 	public List<ReplyVO> historic_replylist() throws Exception;
+	
+	public void deleteReply(int rno)throws Exception;
+	
+	public List<EditorReplyVO> editor_replylist() throws Exception;
+	
+	public void deleteEditReply(int rno)throws Exception;
+	
 	
 	
 }

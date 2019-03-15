@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.EditorReplyVO;
 import org.zerock.domain.Historic_siteVO;
 import org.zerock.domain.Historic_site_detailVO;
 import org.zerock.domain.Historic_site_starVO;
@@ -113,17 +114,36 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void updateThema(int bno, String thema) throws Exception {
+	public void updateThema(Historic_siteVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		Map <String,Object> map = new HashMap<String,Object>();
-		map.put("bno", bno);
-		map.put("thema", thema);
-		session.update(namespace+".updateThema",map);
+	
+		session.update(namespace+".updateThema",vo);
 	}
 
+	
+	//댓글 관리
 	@Override
 	public List<ReplyVO> historic_replylist() throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".historic_replylist");
+	}
+
+	@Override
+	public void deleteReply(int rno) throws Exception {
+		// TODO Auto-generated method stub
+		session.delete(namespace+".deleteReply",rno);
+	}
+
+	@Override
+	public List<EditorReplyVO> editor_replylist() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".editor_replylist");
+	}
+
+	@Override
+	public void deleteEditReply(int rno) throws Exception {
+		// TODO Auto-generated method stub
+		session.delete(namespace+".deleteEditReply",rno);
 	}
 }

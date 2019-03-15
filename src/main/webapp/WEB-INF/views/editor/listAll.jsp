@@ -77,6 +77,8 @@ a:hover {
 									<td>연인</td>
 									</c:if><c:if test="${vo.theme == 3}">
 									<td>교육</td>
+									</c:if><c:if test="${vo.theme == 4}">
+									<td>종교</td>
 									</c:if>
 									
 									
