@@ -17,6 +17,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication auth) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		System.out.println("하이");
 		List<String> roleNames= new ArrayList<>();
 		auth.getAuthorities().forEach(authority -> {
 			roleNames.add(authority.getAuthority());

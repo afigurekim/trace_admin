@@ -44,7 +44,7 @@
                     <div class="div-gap-50"></div>
 
 					<div class="wrap-input100 validate-input" data-validate = "아이디를 입력하세요">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" name="username" id="inputId">
 						<span class="focus-input100" data-placeholder="아이디"></span>
 					</div>
 
@@ -52,7 +52,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="password" id="inputPassword">
 						<span class="focus-input100" data-placeholder="비밀번호"></span>
 					</div>
 

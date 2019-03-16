@@ -53,7 +53,7 @@ display:block;
 
 	<!-- 상단의 bar -->
 	<nav class="navbar navbar-dark bg-dark static-top">
-		<a class="navbar-brand mr-1" href="/">관리자 페이지</a>
+		<a class="navbar-brand mr-1" href="/"><img src="../../../resources/imgs/logo.png" style="width:150px;"></a>
 		<div>
 			<form class="form-inline" action="/customLogout" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
