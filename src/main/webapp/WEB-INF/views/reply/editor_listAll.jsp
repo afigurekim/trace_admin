@@ -38,7 +38,7 @@ $(function(){
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            카테고리 테마 분류</div>
+            에디터 추천코스 댓글관리</div>
           
           <div class="card-body">
             <div class="table-responsive">
