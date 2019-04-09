@@ -269,6 +269,28 @@
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
 			</plugin>
+			
+			<!-- server deplolyment via Maven -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warsourcedirectory>src/main/webapp</warsourcedirectory>
+					<webxml>src/main/webapp/WEB-INF/web.xml</webxml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<url>http://15.164.63.199:8080/manager/text</url>
+					<path>/trace_admin</path>
+					<username>admin</username>
+					<password>2figurekim</password>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
